@@ -33,7 +33,7 @@ allprojects {
 }
 
 shadowJar {
-    archiveName = "$baseName-$version.$extension"
+    archiveClassifier.set('')
 }
 
 project.afterEvaluate {
