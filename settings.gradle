@@ -1,0 +1,5 @@
+rootProject.name = 'configurate'
+
+include ':configurate-typesafe'
+include ':configurate-core'
+include ':configurate-hocon'
