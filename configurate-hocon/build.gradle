@@ -1,5 +1,5 @@
 plugins {
-  id 'java-library'
+  id 'java'
 }
 
 version '3.7'
@@ -8,8 +8,8 @@ dependencies {
   testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
   testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
 
-  api project(':configurate-core')
-  api project(':configurate-typesafe')
+  implementation project(':configurate-core')
+  implementation project(':configurate-typesafe')
 }
 
 test {
