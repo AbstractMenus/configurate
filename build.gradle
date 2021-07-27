@@ -1,5 +1,6 @@
 plugins {
-    id 'java-library'
+    id 'java'
+    id 'com.github.johnrengelman.shadow' version '7.0.0'
 }
 
 group 'ninja.leaping'
@@ -9,9 +10,9 @@ dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
 
-    api project(":configurate-typesafe")
-    api project(":configurate-core")
-    api project(":configurate-hocon")
+    implementation project(":configurate-typesafe")
+    implementation project(":configurate-core")
+    implementation project(":configurate-hocon")
 }
 
 allprojects {
@@ -24,6 +25,14 @@ allprojects {
         options.deprecation = true
         options.encoding = 'UTF-8'
     }
+}
+
+shadowJar {
+    archiveName = "$baseName-$version.$extension"
+}
+
+artifacts {
+    archives shadowJar
 }
 
 test {
