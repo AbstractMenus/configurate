@@ -46,10 +46,6 @@ project.afterEvaluate {
     }
 }
 
-artifacts {
-    archives shadowJar
-}
-
 test {
     useJUnitPlatform()
 }
