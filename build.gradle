@@ -4,6 +4,10 @@ plugins {
     id 'com.github.johnrengelman.shadow' version '7.0.0'
 }
 
+apply plugin: 'java'
+apply plugin: 'maven-publish'
+apply plugin: 'com.github.johnrengelman.shadow'
+
 group 'ninja.leaping'
 version '3.7'
 
@@ -35,8 +39,8 @@ shadowJar {
 project.afterEvaluate {
     publishing {
         publications {
-            mavenJava(MavenPublication) {
-                artifact shadowJar
+            shadow(MavenPublication) { publication ->
+                project.shadow.component(publication)
             }
         }
     }
